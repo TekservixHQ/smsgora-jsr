@@ -1,0 +1,33 @@
+name: tests
+on:
+  push:
+  pull_request:
+jobs:
+  deno:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: deno check mod.ts
+      - run: deno lint mod.ts
+      - run: deno test --allow-none
+      - run: deno publish --dry-run
+  node:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['22', '24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: node --experimental-strip-types --test mod_test.ts
+  bun:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun -e "const m = await import('./mod.ts'); if (typeof m.default !== 'function') process.exit(1); console.log('bun import ok')"
