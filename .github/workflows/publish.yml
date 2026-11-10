@@ -1,0 +1,20 @@
+# Publishes to jsr.io when a version tag (v1.2.3) is pushed.
+# The package must be linked to this GitHub repository in its jsr.io settings.
+name: publish
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: deno publish
