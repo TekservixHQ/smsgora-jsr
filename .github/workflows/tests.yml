@@ -12,7 +12,7 @@ jobs:
           deno-version: v2.x
       - run: deno check mod.ts
       - run: deno lint mod.ts
-      - run: deno test --allow-none
+      - run: deno test
       - run: deno publish --dry-run
   node:
     runs-on: ubuntu-latest
