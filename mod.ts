@@ -20,7 +20,7 @@
  */
 
 /** Package version, sent in the User-Agent header. */
-export const VERSION = "1.0.0";
+export const VERSION = "1.0.1";
 
 /** Production API base URL. */
 export const DEFAULT_BASE_URL = "https://tekservix.com/smsgora/api/v1";
