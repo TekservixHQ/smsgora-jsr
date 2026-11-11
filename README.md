@@ -4,6 +4,8 @@
 [![JSR Score](https://jsr.io/badges/@tekservix/smsgora/score)](https://jsr.io/@tekservix/smsgora)
 [![tests](https://github.com/TekservixHQ/smsgora-jsr/actions/workflows/tests.yml/badge.svg)](https://github.com/TekservixHQ/smsgora-jsr/actions/workflows/tests.yml)
 
+**SMS Gora SMS Gateway** - official TypeScript client on JSR (Deno, Bun, Node, edge): send and receive SMS through your own Android phones. By Tekservix.
+
 TypeScript client for the [SMS Gora SMS Gateway](https://tekservix.com/smsgora/) API, for Deno, Bun, Node.js and edge runtimes.
 
 SMS Gora turns Android phones with ordinary SIM cards into an SMS gateway. Your server calls the API, a linked phone sends the text, and replies and delivery reports come back to you. There's no sender ID registration and no per-message fee from us: your mobile operator bills the texts like any SMS.
